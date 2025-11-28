@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Quicksand", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -31,7 +31,7 @@ body {
   z-index: 1;
   padding: 24px;
   width: 100%;
-  max-width: 540px;
+  max-width: 900px;
 }
 
 .card {
@@ -43,6 +43,8 @@ body {
     0 0 0 1px rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
   text-align: center;
+  width: 100%;
+  padding: 40px 50px;
 }
 
 .subtitle {
@@ -62,8 +64,12 @@ body {
 
 .message {
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.9;
   margin-bottom: 20px;
+  max-width: 85%;        /* dulu 500–800px, sekarang menyesuaikan card baru */
+  margin: 0 auto 22px;
+  color: #5c2c5d;
+  
 }
 
 .details {
@@ -73,6 +79,8 @@ body {
   border-radius: 16px;
   background: rgba(255, 240, 245, 0.9);
   margin-bottom: 20px;
+  max-width: 70%;        /* jangan terlalu lebar biar tetap focus */
+  margin: 20px auto;
 }
 
 .details p + p {
@@ -83,6 +91,24 @@ body {
   color: #b56576;
   font-weight: 600;
   margin-right: 4px;
+}
+
+.message,
+.details {
+  max-width: 800px;     /* boleh kamu kecilin jadi 700 / 650 kalau mau lebih “ngotak” */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Khusus details, kita buat lebih sempit lagi biar nggak kelihatan kosong */
+.details {
+  max-width: 500px;
+}
+
+/* Biar teks message lebih enak dibaca */
+.message {
+  text-align: center;   /* kalau mau rata kiri, ganti ke left aja */
+  line-height: 1.8;
 }
 
 .closing {
@@ -111,16 +137,26 @@ body {
 }
 
 @media (max-width: 480px) {
+  .container {
+    max-width: 95%;
+  }
+  
   .card {
-    padding: 24px 18px 20px;
+    padding: 28px 22px;
   }
 
   .title {
     font-size: 22px;
+    font-family: "Playfair Display", serif;
   }
 
   .message {
     font-size: 14px;
+  }
+
+  .message,
+  .details {
+    max-width: 100%;
   }
 }
 
@@ -138,4 +174,146 @@ body {
   width: 160px;
   height: 160px;
 }
+
+.photo-wrapper {
+  margin: 10px auto 18px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #ff9a9e, #fecfef);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.floating-hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floating-hearts span {
+  position: absolute;
+  bottom: -40px;
+  font-size: 18px;
+  opacity: 0.7;
+  animation: floatUp 10s linear infinite;
+}
+
+/* Posisi random dikit */
+.floating-hearts span:nth-child(1) { left: 10%; animation-duration: 11s; animation-delay: 0s; }
+.floating-hearts span:nth-child(2) { left: 30%; animation-duration: 9s;  animation-delay: 2s; }
+.floating-hearts span:nth-child(3) { left: 50%; animation-duration: 13s; animation-delay: 1s; }
+.floating-hearts span:nth-child(4) { left: 70%; animation-duration: 10s; animation-delay: 3s; }
+.floating-hearts span:nth-child(5) { left: 85%; animation-duration: 12s; animation-delay: 1.5s; }
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.9);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.3);
+    opacity: 0;
+  }
+}
+
+.section-title {
+  margin-top: 26px;
+  margin-bottom: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c06c84;
+}
+
+.activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Pake CSS grid biar rapi & konsisten */
+.activity-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: rgba(255, 240, 245, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  font-size: 15px;
+  margin: 0;
+  gap: 16px;
+}
+
+.activity-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;      /* PAKSA rata kiri */
+}
+
+.activity-type {
+  font-weight: 700;
+  color: #5c2c5d;
+}
+
+.activity-time {
+  font-size: 12px;
+  color: #f28482;  /* sedikit lebih hangat dari location */
+}
+
+.activity-location {
+  font-size: 12px;
+  color: #b56576;
+}
+
+.activity-link {
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  color: #ff6f91;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.activity-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .activity-item {
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+  }
+
+  .activity-link {
+    width: 100%;
+  }
+}
+
+
+
+
 
