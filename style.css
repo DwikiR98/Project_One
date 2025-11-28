@@ -123,3 +123,19 @@ body {
     font-size: 14px;
   }
 }
+
+.qr-section {
+  margin-top: 18px;
+}
+
+.qr-section p {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+#qrcode {
+  margin: 0 auto;
+  width: 160px;
+  height: 160px;
+}
+

@@ -5,6 +5,19 @@
   <title>Anniversary Invitation</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  // Pakai URL halaman saat ini
+  const url = window.location.href;
+
+  new QRCode(document.getElementById("qrcode"), {
+    text: url,
+    width: 160,
+    height: 160
+  });
+</script>
+
 <body>
   <div class="overlay"></div>
   <div class="container">
@@ -32,7 +45,14 @@
          target="_blank">
         RSVP via WhatsApp
       </a>
+
+      <div class="qr-section">
+        <p>Atau scan QR ini untuk buka halaman ini:</p>
+        <div id="qrcode"></div>
+      </div>
+
     </div>
   </div>
 </body>
+
 </html>
