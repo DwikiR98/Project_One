@@ -5,7 +5,8 @@
 }
 
 body {
-  font-family: "Quicksand", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Quicksand", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -18,10 +19,21 @@ body {
 .overlay {
   position: fixed;
   inset: 0;
-  background-image:
-    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.5) 0, transparent 50%),
-    radial-gradient(circle at 80% 0%, rgba(255,255,255,0.4) 0, transparent 55%),
-    radial-gradient(circle at 50% 100%, rgba(255,255,255,0.35) 0, transparent 55%);
+  background-image: radial-gradient(
+      circle at 10% 20%,
+      rgba(255, 255, 255, 0.5) 0,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 0%,
+      rgba(255, 255, 255, 0.4) 0,
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(255, 255, 255, 0.35) 0,
+      transparent 55%
+    );
   opacity: 0.8;
   pointer-events: none;
 }
@@ -38,8 +50,7 @@ body {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 24px;
   padding: 32px 28px 28px;
-  box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.15),
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15),
     0 0 0 1px rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
   text-align: center;
@@ -66,10 +77,9 @@ body {
   font-size: 15px;
   line-height: 1.9;
   margin-bottom: 20px;
-  max-width: 85%;        /* dulu 500–800px, sekarang menyesuaikan card baru */
+  max-width: 85%; /* dulu 500–800px, sekarang menyesuaikan card baru */
   margin: 0 auto 22px;
   color: #5c2c5d;
-  
 }
 
 .details {
@@ -79,7 +89,7 @@ body {
   border-radius: 16px;
   background: rgba(255, 240, 245, 0.9);
   margin-bottom: 20px;
-  max-width: 70%;        /* jangan terlalu lebar biar tetap focus */
+  max-width: 70%; /* jangan terlalu lebar biar tetap focus */
   margin: 20px auto;
 }
 
@@ -95,7 +105,7 @@ body {
 
 .message,
 .details {
-  max-width: 800px;     /* boleh kamu kecilin jadi 700 / 650 kalau mau lebih “ngotak” */
+  max-width: 800px; /* boleh kamu kecilin jadi 700 / 650 kalau mau lebih “ngotak” */
   margin-left: auto;
   margin-right: auto;
 }
@@ -107,7 +117,7 @@ body {
 
 /* Biar teks message lebih enak dibaca */
 .message {
-  text-align: center;   /* kalau mau rata kiri, ganti ke left aja */
+  text-align: center; /* kalau mau rata kiri, ganti ke left aja */
   line-height: 1.8;
 }
 
@@ -140,7 +150,7 @@ body {
   .container {
     max-width: 95%;
   }
-  
+
   .card {
     padding: 28px 22px;
   }
@@ -209,11 +219,31 @@ body {
 }
 
 /* Posisi random dikit */
-.floating-hearts span:nth-child(1) { left: 10%; animation-duration: 11s; animation-delay: 0s; }
-.floating-hearts span:nth-child(2) { left: 30%; animation-duration: 9s;  animation-delay: 2s; }
-.floating-hearts span:nth-child(3) { left: 50%; animation-duration: 13s; animation-delay: 1s; }
-.floating-hearts span:nth-child(4) { left: 70%; animation-duration: 10s; animation-delay: 3s; }
-.floating-hearts span:nth-child(5) { left: 85%; animation-duration: 12s; animation-delay: 1.5s; }
+.floating-hearts span:nth-child(1) {
+  left: 10%;
+  animation-duration: 11s;
+  animation-delay: 0s;
+}
+.floating-hearts span:nth-child(2) {
+  left: 30%;
+  animation-duration: 9s;
+  animation-delay: 2s;
+}
+.floating-hearts span:nth-child(3) {
+  left: 50%;
+  animation-duration: 13s;
+  animation-delay: 1s;
+}
+.floating-hearts span:nth-child(4) {
+  left: 70%;
+  animation-duration: 10s;
+  animation-delay: 3s;
+}
+.floating-hearts span:nth-child(5) {
+  left: 85%;
+  animation-duration: 12s;
+  animation-delay: 1.5s;
+}
 
 @keyframes floatUp {
   0% {
@@ -265,7 +295,7 @@ body {
 .activity-text {
   display: flex;
   flex-direction: column;
-  text-align: left;      /* PAKSA rata kiri */
+  text-align: left; /* PAKSA rata kiri */
 }
 
 .activity-type {
@@ -275,7 +305,7 @@ body {
 
 .activity-time {
   font-size: 12px;
-  color: #f28482;  /* sedikit lebih hangat dari location */
+  color: #f28482; /* sedikit lebih hangat dari location */
 }
 
 .activity-location {
@@ -313,7 +343,139 @@ body {
   }
 }
 
+/* Responsive */
+@media (max-width: 480px) {
+  .photo-row {
+    height: 180px;
+  }
 
+  .polaroid {
+    width: 120px;
+    padding: 8px 8px 24px;
+  }
 
+  .polaroid img {
+    height: 120px;
+  }
 
+  .photo-left {
+    transform: translateX(-105%) rotate(-3deg);
+  }
 
+  .photo-right {
+    transform: translateX(-15%) rotate(3deg);
+  }
+}
+
+/* ===== PHOTO WALL – 4 / 4 / 3 CENTERED FINAL ===== */
+
+.photo-wall {
+  margin: 20px auto 36px;
+  max-width: 620px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 kolom */
+  gap: 18px 18px;
+  justify-items: center;
+}
+
+/* Polaroid base */
+.polaroid {
+  width: 130px;
+  background: #fff;
+  padding: 10px 10px 26px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  animation: fadePolaroid 0.7s ease-out forwards;
+}
+
+.polaroid img {
+  width: 100%;
+  height: 130px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.polaroid-caption {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #5c2c5d;
+  font-weight: 600;
+  text-align: center;
+}
+
+@keyframes fadePolaroid {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Rotasi lembut per foto */
+.p1 {
+  transform: rotate(-3deg);
+  animation-delay: 0.05s;
+}
+.p2 {
+  transform: rotate(2deg);
+  animation-delay: 0.1s;
+}
+.p3 {
+  transform: rotate(-2deg);
+  animation-delay: 0.15s;
+}
+.p4 {
+  transform: rotate(3deg);
+  animation-delay: 0.2s;
+}
+
+.p5 {
+  transform: rotate(-3deg);
+  animation-delay: 0.25s;
+}
+.p6 {
+  transform: rotate(2deg);
+  animation-delay: 0.3s;
+}
+.p7 {
+  transform: rotate(-2deg);
+  animation-delay: 0.35s;
+}
+.p8 {
+  transform: rotate(3deg);
+  animation-delay: 0.4s;
+}
+
+.polaroid:hover {
+  transform: translateY(-4px) scale(1.03) rotate(0deg) !important;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.22);
+  z-index: 2;
+}
+
+/* Mobile – 2 atau 3 kolom (biar muat) */
+@media (max-width: 600px) {
+  .photo-wall {
+    max-width: 100%;
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* bisa ganti 3 kalau mau lebih kecil */
+    gap: 12px;
+  }
+
+  .polaroid {
+    width: 120px;
+    padding: 8px 8px 20px;
+  }
+
+  .polaroid img {
+    height: 110px;
+  }
+}
